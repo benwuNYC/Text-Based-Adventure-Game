@@ -1,9 +1,16 @@
 package Game;
-// Author: Benjamin Wu
 
+// Author: Benjamin Wu
+import Board.HauntedHouse;
 import People.Person;
+import Items.Knife;
+import Items.Torch;
+import Items.Key;
 import Rooms.DarkRoom;
+import Rooms.DimRoom;
+import Rooms.MonsterRoom;
 import Rooms.Outside;
+
 
 import java.util.Scanner;
 
@@ -14,6 +21,11 @@ public class Runner {
 
     public static void main(String[] args)
     {
+        Scanner name = new Scanner(System.in);
+        System.out.println("Welcome! You wandered into a haunted house and suddenly, the door slams shut from the inside. What's your name?");
+        String Playername = name.nextLine();
+        System.out.println(Playername +", find a key in one of the rooms and get out as soon as possible before the monster that resides here attacks!");
+
         DarkRoom[][] building = new DarkRoom[2][2];
 
         //Fill the building with normal rooms
@@ -40,7 +52,7 @@ public class Runner {
         Scanner in = new Scanner(System.in);
 
         //Creates a Board
-        Board board1 = new Board (building);
+        HauntedHouse board1 = new HauntedHouse (building);
         Person player1 = new Person("FirstName", "FamilyName", 0,0);
         building[0][0].enterRoom(player1);
         Scanner in = new Scanner(System.in);
@@ -58,6 +70,7 @@ public class Runner {
             else {
                 System.out.println("You bumped into the wall! Try moving somewhere else!");
             }
+            HauntedHouse map = new HauntedHouse("")
 
 
         }
