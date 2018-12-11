@@ -18,7 +18,7 @@ public class DarkRoom {
      */
     public void enterRoom(Person x)
     {
-        System.out.println("You are lost in a pitch black cave!");
+        System.out.println("You're in a pitch black room.");
         occupant = x;
         x.setxLoc(this.CaveX);
         x.setyLoc(this.CaveY);
@@ -32,5 +32,15 @@ public class DarkRoom {
     {
         occupant = null;
     }
+
+    public String toString() {
+        String Room = "";
+        Room = Room + "[ ]";
+        if (occupant != null) {
+            return "[x]";
+        }
+        return Room;
+    }
+
 
 }

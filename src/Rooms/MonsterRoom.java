@@ -4,8 +4,7 @@ package Rooms;
 import Game.Runner;
 import People.Person;
 
-public class MonsterRoom extends DarkRoom
-{
+public class MonsterRoom extends DarkRoom {
 
     public MonsterRoom(int x, int y) {
         super(x, y);
@@ -14,6 +13,7 @@ public class MonsterRoom extends DarkRoom
 
     /**
      * Triggers the game ending conditions.
+     *
      * @param x the Person entering
      */
     @Override
@@ -24,5 +24,10 @@ public class MonsterRoom extends DarkRoom
         x.setyLoc(this.CaveY);
         System.out.println("You fell into the lava! You died, idiot!.");
         Runner.gameOff();
+    }
+
+    public String toString() {
+        String Room = "";
+        return Room + "[ ]";
     }
 }

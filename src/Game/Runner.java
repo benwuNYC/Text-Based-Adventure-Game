@@ -1,14 +1,8 @@
 package Game;
 
 // Author: Benjamin Wu
-import Board.HauntedHouse;
 import People.Person;
-import Items.Knife;
-import Items.Torch;
-import Items.Key;
 import Rooms.DarkRoom;
-import Rooms.DimRoom;
-import Rooms.MonsterRoom;
 import Rooms.Outside;
 
 
@@ -23,10 +17,9 @@ public class Runner {
     {
         Scanner name = new Scanner(System.in);
         System.out.println("Welcome! You wandered into a haunted house and suddenly, the door slams shut from the inside. What's your name?");
-        String Playername = name.nextLine();
-        System.out.println(Playername +", find a key in one of the rooms and get out as soon as possible before the monster that resides here attacks!");
-
-        DarkRoom[][] building = new DarkRoom[2][2];
+        String playerName = name.nextLine();
+        System.out.println(playerName +", find a key in one of the rooms and get out as soon as possible before the monster attacks!");
+        DarkRoom [][] building = new DarkRoom[2][2];
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -47,91 +40,74 @@ public class Runner {
         int b = (int)(Math.random()*building.length);
 
         //Setup player 1 and the input scanner
-        Person player1 = new Person("FirstName", "FamilyName", 0,0);
+        Person player1 = new Person("Benjamin",0,0);
         building[0][0].enterRoom(player1);
-        Scanner in = new Scanner(System.in);
+        Scanner nextMove = new Scanner(System.in);
 
-        //Creates a Board
-        HauntedHouse board1 = new HauntedHouse (building);
-        Person player1 = new Person("FirstName", "FamilyName", 0,0);
-        building[0][0].enterRoom(player1);
-        Scanner in = new Scanner(System.in);
-
+        // While gameOn, it prints "Where would you like to go" and if the user's move is valid, it prints out the player's location.
+        // Else, it says to do another move
 
         while(gameOn)
         {
             System.out.println("Where would you like to move? (Choose N, S, E, W)");
-            String move = in.nextLine();
+            String move = nextMove.nextLine();
             if(validMove(move, player1, building))
             {
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+                building.print();
 
             }
             else {
                 System.out.println("You bumped into the wall! Try moving somewhere else!");
             }
-            HauntedHouse map = new HauntedHouse("")
-
 
         }
-        in.close();
+
+        nextMove.close();
     }
 
     /**
-     * Checks that the movement chosen is within the valid game map.
+     * Checks that the movement chosen is within the valid game building.
      * @param move the move chosen
      * @param p person moving
-     * @param map the 2D array of rooms
+     * @param building the 2D array of rooms
      * @return
      */
-    public static boolean validMove(String move, Person p, DarkRoom[][] map)
-    {
+    public static boolean validMove(String move, Person p, DarkRoom[][] building) {
         move = move.toLowerCase().trim();
         switch (move) {
             case "n":
-                if (p.getxLoc() > 0)
-                {
-                    map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                    map[p.getxLoc()-1][p.getyLoc()].enterRoom(p);
+                if (p.getxLoc() > 0) {
+                    building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
+                    building[p.getxLoc() - 1][p.getyLoc()].enterRoom(p);
                     return true;
-                }
-                else
-                {
+                } else {
                     return false;
                 }
             case "e":
-                if (p.getyLoc()< map[p.getyLoc()].length -1)
-                {
-                    map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                    map[p.getxLoc()][p.getyLoc() + 1].enterRoom(p);
+                if (p.getyLoc() < building[p.getyLoc()].length - 1) {
+                    building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
+                    building[p.getxLoc()][p.getyLoc() + 1].enterRoom(p);
                     return true;
-                }
-                else
-                {
+                } else {
                     return false;
                 }
 
             case "s":
-                if (p.getxLoc() < map.length - 1)
-                {
-                    map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                    map[p.getxLoc()+1][p.getyLoc()].enterRoom(p);
+                if (p.getxLoc() < building.length - 1) {
+                    building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
+                    building[p.getxLoc() + 1][p.getyLoc()].enterRoom(p);
                     return true;
-                }
-                else
-                {
+                } else {
                     return false;
                 }
 
             case "w":
-                if (p.getyLoc() > 0)
-                {
-                    map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                    map[p.getxLoc()][p.getyLoc()-1].enterRoom(p);
+                if (p.getyLoc() > 0) {
+                    building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
+                    building[p.getxLoc()][p.getyLoc() - 1].enterRoom(p);
                     return true;
-                }
-                else
-                {
+                } else {
                     return false;
                 }
             default:
@@ -140,11 +116,10 @@ public class Runner {
         }
         return true;
     }
+
     public static void gameOff()
     {
         gameOn = false;
     }
-
-
 
 }

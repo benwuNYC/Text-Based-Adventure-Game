@@ -24,6 +24,10 @@ public class Outside extends DarkRoom
         System.out.println("You fell into the lava! You died, idiot!.");
         Runner.gameOff();
     }
+    public String toString() {
+        String Room = "";
+        return Room + "[ ]";
+    }
 
 
 }
