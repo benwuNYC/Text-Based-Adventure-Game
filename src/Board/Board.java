@@ -19,10 +19,6 @@ public class Board {
         this.map = new Room[length][width];
     }
 
-    public Room[][] getBoard() {
-        return this.map;
-    }
-
     public void print() {
         String row = "";
         for (int i = 0; i < map.length; i++) {

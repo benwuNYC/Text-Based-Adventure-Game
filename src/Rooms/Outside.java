@@ -16,13 +16,13 @@ public class Outside extends Room
      * @param x the Person entering
      */
     @Override
+
     public void enterRoom(Person x) {
 
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);
         System.out.println("You fell into the lava! You died, idiot!.");
-        Runner.gameOff();
     }
     public String toString() {
         String Room = "";

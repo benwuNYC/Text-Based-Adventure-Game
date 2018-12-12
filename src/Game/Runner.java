@@ -3,6 +3,7 @@ package Game;
 // Author: Benjamin Wu
 
 import People.Person;
+import Rooms.MonsterRoom;
 import Rooms.Room;
 import Rooms.Outside;
 
@@ -22,8 +23,8 @@ public class Runner {
         String playerName = name.nextLine();
         System.out.println(playerName +", find a key in one of the rooms and get out as soon as possible before the monster attacks!");
 
-        Room[][] building = new Room[5][5];
-        Game.Board map= new Game.Board(5,5, building);
+        Room[][] building = new Room[3][3];
+        Game.Board map= new Game.Board(3,3, building);
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -37,13 +38,13 @@ public class Runner {
         //Create a random winning room.
         int x = (int)(Math.random()*building.length);
         int y = (int)(Math.random()*building.length);
-        building[x][y] = new Outside(x, y);
+        building[x][y] = new MonsterRoom(x, y);
 
 
         //Setup player 1 and the input scanner
         // Sets where player spawns
         Person player1 = new Person("name", 0, 0);
-        building[3][2].enterRoom(player1);
+        building[1][1].enterRoom(player1);
 
         //If player's move is checked by method "ValidMove", then it prints out coordinates and map
         //Else; Try again
