@@ -32,22 +32,21 @@ public class MonsterRoom extends Room {
                 System.out.println("Oh no! The knife is locked in the dishwasher! Guess the combination from 1-5 to get it!");
                 int a = (int)(Math.random() * 5 + 1);
                 Scanner guess = new Scanner(System.in);
-                if(guess.equals(a)) {
-                    System.out.println("You got the knife! Do you want to stab the monster?");
-                    Scanner stab = new Scanner(System.in);
-                    if (stab.equals("yes")) {
-                        System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");
-                    } else {
-                        if (stab.equals("no")) {
-                            System.out.println("The monster swipes and slashes your skull open! Unfortunately, you bleed to death");
-                            Runner.gameOff();
-                        }
-                    }
-                }else{
+                while(!guess.equals(a)) {
                     System.out.println("Try again, that's not the number!");
                     numGuess ++;
                 }
-
+                System.out.println("Nice! You guess the number in " + numGuess + "tries");
+                System.out.println("You got the knife! Do you want to stab the monster?");
+                Scanner stab = new Scanner(System.in);
+                if (stab.equals("yes")) {
+                    System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");
+                } else {
+                    if (stab.equals("no")) {
+                        System.out.println("The monster swipes and slashes your skull open! Unfortunately, you bleed to death");
+                        Runner.gameOff();
+                    }
+                }
             }
         }
         System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");
