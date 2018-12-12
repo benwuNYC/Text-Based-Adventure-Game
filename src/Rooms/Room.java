@@ -4,12 +4,12 @@ import People.Person;
 
 public class Room {
     Person occupant;
-    int CaveX,CaveY;
+    int x,y;
 
     public Room(int x, int y)
     {
-        CaveX = x;
-        CaveY = y;
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -20,8 +20,8 @@ public class Room {
     {
         System.out.println("You're in a pitch black room.");
         occupant = x;
-        x.setxLoc(this.CaveX);
-        x.setyLoc(this.CaveY);
+        x.setxLoc(this.x);
+        x.setyLoc(this.y);
     }
 
     /**

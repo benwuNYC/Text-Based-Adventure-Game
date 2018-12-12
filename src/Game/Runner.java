@@ -41,9 +41,13 @@ public class Runner {
 
 
         //Setup player 1 and the input scanner
-        Person player1 = new Person("FirstName", 0, 0);
-        building[0][0].enterRoom(player1);
+        // Sets where player spawns
+        Person player1 = new Person("name", 0, 0);
+        building[3][2].enterRoom(player1);
 
+        //If player's move is checked by method "ValidMove", then it prints out coordinates and map
+        //Else; Try again
+        //In.Close closes Scanner
         while(gameOn)
         {
             System.out.println("Where would you like to move? (Choose N, S, E, W)");
@@ -57,9 +61,6 @@ public class Runner {
             else {
                 System.out.println("You bumped into the wall! Try moving somewhere else!");
             }
-
-
-
         }
         in.close();
     }
@@ -73,11 +74,12 @@ public class Runner {
      * @param map the 2D array of rooms
      * @return
      */
+    //User's input is made lowercase by .toLowerCase().trim
     public static boolean validMove(String move, Person p, Room[][] map)
     {
         move = move.toLowerCase().trim();
         switch (move) {
-            case "e":
+            case "n":
                 if (p.getxLoc() > 0)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -88,11 +90,11 @@ public class Runner {
                 {
                     return false;
                 }
-            case "w":
+            case "e":
                 if (p.getyLoc()< map[p.getyLoc()].length -1)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                    map[p.getxLoc()][p.getyLoc() + 1].enterRoom(p);
+                    map[p.getxLoc()][p.getyLoc()+ 1].enterRoom(p);
                     return true;
                 }
                 else
@@ -112,7 +114,7 @@ public class Runner {
                     return false;
                 }
 
-            case "n":
+            case "w":
                 if (p.getyLoc() > 0)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -129,6 +131,7 @@ public class Runner {
         }
         return true;
     }
+
     public static void gameOff()
     {
         gameOn = false;

@@ -20,8 +20,8 @@ public class MonsterRoom extends Room {
     public void enterRoom(Person x) {
 
         occupant = x;
-        x.setxLoc(this.CaveX);
-        x.setyLoc(this.CaveY);
+        x.setxLoc(this.x);
+        x.setyLoc(this.y);
         System.out.println("You fell into the lava! You died, idiot!.");
         Runner.gameOff();
     }
