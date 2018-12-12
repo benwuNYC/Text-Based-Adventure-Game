@@ -4,7 +4,7 @@ package Rooms;
 import Game.Runner;
 import People.Person;
 
-public class MonsterRoom extends DarkRoom {
+public class MonsterRoom extends Room {
 
     public MonsterRoom(int x, int y) {
         super(x, y);

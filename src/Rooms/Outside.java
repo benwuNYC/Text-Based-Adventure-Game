@@ -3,7 +3,7 @@ package Rooms;
 import Game.Runner;
 import People.Person;
 
-public class Outside extends DarkRoom
+public class Outside extends Room
 {
 
     public Outside(int x, int y) {

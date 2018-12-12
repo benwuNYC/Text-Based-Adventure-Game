@@ -1,47 +1,37 @@
-package Board;
+package Game;
 
-import Rooms.DarkRoom;
+import Rooms.Room;
+
 
 public class Board {
-    private DarkRoom[][] building;
+    private Room[][] map;
     private int length;
     private int width;
 
-    public Board(int length, int width,DarkRoom[][] building) {
-        this.length=length;
-        this.width=width;
-        this.building = new DarkRoom[length][width];
+
+    public Board(int length, int width, Room[][] map) {
+        this.length = length;
+        this.width = width;
+        this.map = map;
     }
 
-    public String Mode (String input, int length, int width, Board[][] building) {
-        if (input.equals("easy")) {
-            width = 5;
-            length = 5;
-            building = new Board[width][length];
-            print();
-        }
-        if (input.equals("medium")) {
-            width = 7;
-            length = 7;
-            building = new Board[width][length];
-            print();
-        }
-        if (input.equals("hard")) {
-            width = 9;
-            length = 9;
-            building = new Board[width][length];
-            print();
-        }
-        return "Okay, you are on difficulty level " + input;
+    public Board(int length, int width) {
+        this.map = new Room[length][width];
+    }
+
+    public Room[][] getBoard() {
+        return this.map;
     }
 
     public void print() {
         String row = "";
-        for (int i = 0; i < building.length; i++) {
-            for (int j = 0; j < building[i].length; j++) {
-                row+= building[i][j].toString();
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                row += map[i][j].toString();
             }
             System.out.println(row);
+            row = "";
         }
     }
 }
+
