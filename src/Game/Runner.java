@@ -1,6 +1,7 @@
 package Game;
 
 // Author: Benjamin Wu
+import Board.Board;
 import People.Person;
 import Rooms.DarkRoom;
 import Rooms.Outside;
@@ -19,7 +20,9 @@ public class Runner {
         System.out.println("Welcome! You wandered into a haunted house and suddenly, the door slams shut from the inside. What's your name?");
         String playerName = name.nextLine();
         System.out.println(playerName +", find a key in one of the rooms and get out as soon as possible before the monster attacks!");
+
         DarkRoom [][] building = new DarkRoom[2][2];
+        Board map = new Board(5,5,building);
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -54,7 +57,7 @@ public class Runner {
             if(validMove(move, player1, building))
             {
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
-                building.print();
+                map.print();
 
             }
             else {

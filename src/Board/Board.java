@@ -7,7 +7,7 @@ public class Board {
     private int length;
     private int width;
 
-    public Board(int length, int width) {
+    public Board(int length, int width,DarkRoom[][] building) {
         this.length=length;
         this.width=width;
         this.building = new DarkRoom[length][width];
