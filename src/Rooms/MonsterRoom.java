@@ -25,18 +25,20 @@ public class MonsterRoom extends Room {
         System.out.println("BOO! The monster jumps out at you! Do you fight it or grab a knife nearby?");
         Scanner wep = new Scanner(System.in);
         String weapon = wep.nextLine();
-        if (weapon.equals("fight")){
+        if (weapon.equals("fight")) {
             System.out.println("You falcon punched the monster!" + "\n" + "You uppercut him!" + "\n" + "You stomp on his face!");
         } else {
-            if (weapon.equals("knife")){
+            if (weapon.equals("knife")) {
                 System.out.println("Oh no! The knife is locked in the dishwasher! Guess the combination from 1-5 to get it!");
-                int a = (int)(Math.random() * 5 + 1);
+                int a = (int) (Math.random() * 5 + 1);
                 Scanner guess = new Scanner(System.in);
-                while(!guess.equals(a)) {
+                int guess1 = guess.nextInt();
+                while (guess1 != a) {
                     System.out.println("Try again, that's not the number!");
-                    numGuess ++;
+                    numGuess++;
+                    guess1 = guess.nextInt();
                 }
-                System.out.println("Nice! You guess the number in " + numGuess + "tries");
+                System.out.println("Nice! You guess the number in " + numGuess + " tries");
                 System.out.println("You got the knife! Do you want to stab the monster?");
                 Scanner stab = new Scanner(System.in);
                 if (stab.equals("yes")) {
@@ -56,6 +58,10 @@ public class MonsterRoom extends Room {
 
     public String toString() {
         String Room = "";
-        return Room + "[ ]";
+        Room = Room + "[ ]";
+        if (occupant != null) {
+            return "[x]";
+        }
+        return Room;
     }
 }
