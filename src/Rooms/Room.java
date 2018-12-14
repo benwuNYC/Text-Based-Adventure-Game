@@ -5,11 +5,13 @@ import People.Person;
 public class Room {
     Person occupant;
     int x,y;
+    Room[][] items;
 
     public Room(int x, int y)
     {
         this.x = x;
         this.y = y;
+        this.items = items;
     }
 
     /**

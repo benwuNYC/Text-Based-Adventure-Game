@@ -8,7 +8,6 @@ public class Outside extends Room
 
     public Outside(int x, int y) {
         super(x, y);
-
     }
 
     /**

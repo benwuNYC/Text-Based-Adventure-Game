@@ -24,12 +24,9 @@ public class Person {
         this.yLoc = yLoc;
     }
 
-    public Person (String name, int xLoc, int yLoc)
-    {
+    public Person(String name, int xLoc, int yLoc) {
         this.name = name;
         this.xLoc = xLoc;
         this.yLoc = yLoc;
     }
-
-
 }
