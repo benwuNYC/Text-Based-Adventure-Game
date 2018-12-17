@@ -5,6 +5,7 @@ import People.Person;
 
 public class Outside extends Room
 {
+    String in = "[ ]";
 
     public Outside(int x, int y) {
         super(x, y);
@@ -21,12 +22,13 @@ public class Outside extends Room
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);
-        System.out.println("You fell into the lava! You died, idiot!.");
+        System.out.println("Congratulations! You've made it out alive!");
     }
+    public void leaveRoom(Person x) {
+        in = "[\uD83D\uDEA9]";
+    }
+
     public String toString() {
-        String Room = "";
-        return Room + "[ ]";
+        return in;
     }
-
-
 }

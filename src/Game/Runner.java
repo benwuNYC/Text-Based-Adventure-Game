@@ -3,6 +3,7 @@ package Game;
 // Author: Benjamin Wu
 
 import People.Person;
+import Rooms.KeyRoom;
 import Rooms.MonsterRoom;
 import Rooms.Room;
 import Rooms.Outside;
@@ -22,7 +23,7 @@ public class Runner {
         System.out.println("Welcome! You wandered into a haunted house and suddenly, the door slams shut from the inside. What's your name?");
         String playerName = name.nextLine();
         System.out.println(playerName +", find a key in one of the rooms and get out as soon as possible before the monster attacks!");
-
+    // Board Size
         Room[][] building = new Room[3][3];
         Game.Board map= new Game.Board(3,3, building);
 
@@ -35,16 +36,24 @@ public class Runner {
             }
         }
 
-        //Create a random winning room.
+        //Create Monster Room
         int x = (int)(Math.random()*building.length);
         int y = (int)(Math.random()*building.length);
         building[x][y] = new MonsterRoom(x, y);
+    // Create Outside Room
+        int a = (int)(Math.random()*building.length);
+        int b = (int)(Math.random()*building.length);
+        building[a][b] = new Outside(a, b);
+//Create KeyRoom
+        int c = (int)(Math.random()*building.length);
+        int d = (int)(Math.random()*building.length);
+        building[a][b] = new KeyRoom(c, d);
 
 
         //Setup player 1 and the input scanner
         // Sets where player spawns
         Person player1 = new Person("name", 0, 0);
-        building[1][1].enterRoom(player1);
+        building[x][y].enterRoom(player1);
 
         //If player's move is checked by method "ValidMove", then it prints out coordinates and map
         //Else; Try again

@@ -4,9 +4,11 @@ package Rooms;
 import Game.Runner;
 import People.Person;
 
-public class DimRoom extends Room {
+public class KeyRoom extends Room {
+    String in = "[ ]";
+    boolean gotKey = false;
 
-    public DimRoom(int x, int y) {
+    public KeyRoom(int x, int y) {
         super(x, y);
 
     }
@@ -25,8 +27,12 @@ public class DimRoom extends Room {
         System.out.println("You found a key!");
     }
 
+    public void leaveRoom(Person x) {
+        in = "[K]";
+        gotKey = true;
+    }
+
     public String toString() {
-        String Room = "";
-        return Room + "[ ]";
+        return in;
     }
 }
