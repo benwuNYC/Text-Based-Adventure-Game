@@ -18,7 +18,7 @@ public class Outside extends Room
     @Override
 
     public void enterRoom(Person x) {
-
+        in = "[x]";
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);

@@ -53,7 +53,9 @@ public class Runner {
         //Setup player 1 and the input scanner
         // Sets where player spawns
         Person player1 = new Person("name", 0, 0);
-        building[x][y].enterRoom(player1);
+        int i = 0;
+        int j = 0;
+        building[i][j].enterRoom(player1);
 
         //If player's move is checked by method "ValidMove", then it prints out coordinates and map
         //Else; Try again

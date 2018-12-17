@@ -28,8 +28,9 @@ public class MonsterRoom extends Room {
         System.out.println("BOO! A monster jumps out at you! Do you fight it or grab a knife nearby?");
         Scanner wep = new Scanner(System.in);
         String weapon = wep.nextLine();
-        while (!weapon.equals("fight") || !weapon.equals("knife")) {
+        if (!weapon.equals("fight") || !weapon.equals("knife")) {
             System.out.println("Hurry you don't have much time!");
+        } else {
             if (weapon.equals("fight")) {
                 System.out.println("You falcon punched the monster!" + "\n" + "You uppercut him!" + "\n" + "You stomp on his face!");
             } else {
@@ -44,11 +45,10 @@ public class MonsterRoom extends Room {
                         guess1 = guess.nextInt();
                     }
                     System.out.println("Nice! You guess the number in " + numGuess + " tries");
-                    break;
                 }
             }
+            System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");
         }
-        System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");
     }
 
     public void leaveRoom(Person x) {
