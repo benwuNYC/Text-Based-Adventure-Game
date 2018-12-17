@@ -3,8 +3,10 @@ import java.util.Scanner;
 
 import Game.Runner;
 import People.Person;
+import Items.Knife;
 
 public class MonsterRoom extends Room {
+    String in = "[ ]";
 
     public MonsterRoom(int x, int y) {
         super(x, y);
@@ -18,6 +20,7 @@ public class MonsterRoom extends Room {
      */
     @Override
     public void enterRoom(Person x) {
+        in = "[x]";
         int numGuess = 0;
         occupant = x;
         x.setxLoc(this.x);
@@ -41,18 +44,18 @@ public class MonsterRoom extends Room {
                         guess1 = guess.nextInt();
                     }
                     System.out.println("Nice! You guess the number in " + numGuess + " tries");
+                    break;
                 }
             }
         }
         System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");
     }
 
+    public void leaveRoom(Person x) {
+        in = "[M]";
+    }
+
     public String toString() {
-        String Room = "";
-        Room = Room + "[ ]";
-        if (occupant != null) {
-            return "[x]";
-        }
-        return Room;
+        return in;
     }
 }

@@ -23,7 +23,6 @@ public class DimRoom extends Room {
         x.setxLoc(this.x);
         x.setyLoc(this.y);
         System.out.println("You found a key!");
-        String Key = "";
     }
 
     public String toString() {

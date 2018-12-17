@@ -7,6 +7,7 @@ public class Knife implements Consumables{
 
     }
     public String getName() {
+
         return null;
     }
     public int wepDmg() {
