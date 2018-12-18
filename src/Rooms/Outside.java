@@ -18,7 +18,7 @@ public class Outside extends Room
     @Override
 //If player enters this room, it prints out you've made it out alive
     public void enterRoom(Person x) {
-        if(gotKey == true) {
+        if(gotKey) {
             in = "[\uD83D\uDEA9]";
             occupant = x;
             x.setxLoc(this.x);
@@ -32,6 +32,9 @@ public class Outside extends Room
 //Returns flag
 
     public String toString() {
+        if (occupant != null) {
+            return "[x]";
+        }
         return in;
     }
 }
