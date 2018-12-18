@@ -4,21 +4,20 @@ import java.util.Scanner;
 import Game.Runner;
 import People.Person;
 import Items.Knife;
-
+//Room shown as [ ]
 public class MonsterRoom extends Room {
     String in = "[ ]";
-
+//Calls constructor in main room (Room)
     public MonsterRoom(int x, int y) {
         super(x, y);
 
     }
 
-    /**
-     * Triggers the game ending conditions.
-     *
-     * @param x the Person entering
-     */
-    @Override
+    // If person enters room, their position is initialized and shown as [x]
+    //Number of Guesses to open dish washer begins at 0
+    //Monster jumps out; Asks if you want to fight
+    //If fight= Displays some action
+    //IF KNIFE = Guess a number to unlock dishwasher and prints out numGuess taken
     public void enterRoom(Person x) {
         in = "[x]";
         int numGuess = 0;
@@ -28,11 +27,12 @@ public class MonsterRoom extends Room {
         System.out.println("BOO! A monster jumps out at you! Do you fight it or grab a knife nearby?");
         Scanner wep = new Scanner(System.in);
         String weapon = wep.nextLine();
-        if (!weapon.equals("fight") || !weapon.equals("knife")) {
-            System.out.println("Hurry you don't have much time!");
-        } else {
+        while (!weapon.equals("fight") || !weapon.equals("knife")) {
+            System.out.println("Grab a weapon, you don't have much time!");
+            weapon = wep.nextLine();
             if (weapon.equals("fight")) {
                 System.out.println("You falcon punched the monster!" + "\n" + "You uppercut him!" + "\n" + "You stomp on his face!");
+                break;
             } else {
                 if (weapon.equals("knife")) {
                     System.out.println("Oh no! The knife is locked in the dishwasher! Guess the combination from 1-5 to get it!");
@@ -50,11 +50,11 @@ public class MonsterRoom extends Room {
             System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");
         }
     }
-
+    // When person leavesRoom, the Room is shown as [M] to show "Monster Room"
     public void leaveRoom(Person x) {
         in = "[M]";
     }
-
+//Returns Room; [ ] if not entered and [M] if entered
     public String toString() {
         return in;
     }

@@ -16,17 +16,15 @@ public class Outside extends Room
      * @param x the Person entering
      */
     @Override
-
+//If player enters this room, it prints out you've made it out alive
     public void enterRoom(Person x) {
-        in = "[x]";
+        in = "[\uD83D\uDEA9]";
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);
         System.out.println("Congratulations! You've made it out alive!");
     }
-    public void leaveRoom(Person x) {
-        in = "[\uD83D\uDEA9]";
-    }
+//Returns flag
 
     public String toString() {
         return in;

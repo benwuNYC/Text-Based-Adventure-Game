@@ -13,18 +13,21 @@ import java.util.Scanner;
 
 public class Runner {
 
-
+//Game is "on"
     private static boolean gameOn = true;
-
+//Welcomes player into house
     public static void main(String[] args)
     {  Scanner in = new Scanner(System.in);
 
         Scanner name = new Scanner(System.in);
-        System.out.println("Welcome! You wandered into a haunted house and suddenly, the door slams shut from the inside. What's your name?");
+        System.out.println("Welcome! You wandered into a haunted house." + "\n" + "Suddenly, the door slams shut from the inside." + "\n" + "What's your name, adventurer?");
+        //Ask for player's name; refers to it throughout
         String playerName = name.nextLine();
-        System.out.println(playerName +", find a key in one of the rooms and get out as soon as possible before the monster attacks!");
-    // Board Size
+        System.out.println(playerName +", find a key in one of the rooms to escape." + "\n" + "There is also a hidden torch, which if you find, will help you with your quest." + "\n" + "However, I must warn you not to stumble upon the monster.");
+    // Board Size (array in room called building) creates a instance with dimensions 3 x 3
         Room[][] building = new Room[3][3];
+        //Creates new Board named map with length, width, and adds building?
+        //Map is the Array
         Game.Board map= new Game.Board(3,3, building);
 
         //Fill the building with normal rooms
@@ -40,11 +43,11 @@ public class Runner {
         int x = (int)(Math.random()*building.length);
         int y = (int)(Math.random()*building.length);
         building[x][y] = new MonsterRoom(x, y);
-    // Create Outside Room
+        // Create Outside Room
         int a = (int)(Math.random()*building.length);
         int b = (int)(Math.random()*building.length);
         building[a][b] = new Outside(a, b);
-//Create KeyRoom
+       //Create KeyRoom
         int c = (int)(Math.random()*building.length);
         int d = (int)(Math.random()*building.length);
         building[a][b] = new KeyRoom(c, d);
@@ -143,6 +146,7 @@ public class Runner {
         }
         return true;
     }
+    //Method that closes game
 
     public static void gameOff()
     {
