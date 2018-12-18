@@ -53,7 +53,9 @@ public class Runner {
         //Setup player 1 and the input scanner
         // Sets where player spawns
         Person player1 = new Person("name", 2, 2);
-        building[1][2].enterRoom(player1);
+        int q = (int)(Math.random()*building.length);
+        int w = (int)(Math.random()*building.length);
+        building[q][w].enterRoom(player1);
     //Creates Board and prints it
         Board map = new Board(building);
         map.print();

@@ -28,8 +28,11 @@ public class MonsterRoom extends Room {
         Scanner wep = new Scanner(System.in);
         String weapon = wep.nextLine();
         while (!weapon.equals("fight") || !weapon.equals("knife")) {
-            System.out.println("Grab a weapon, you don't have much time!");
+            System.out.println("Grab a weapon or fight, you don't have much time!");
             weapon = wep.nextLine();
+            if(weapon.equals("fight") || weapon.equals("knife")){
+                break;
+            }
         }
             if (weapon.equals("fight")) {
                 System.out.println("You falcon punched the monster!" + "\n" + "You uppercut him!" + "\n" + "You stomp on his face!");

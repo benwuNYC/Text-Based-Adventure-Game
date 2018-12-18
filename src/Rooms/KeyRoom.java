@@ -6,7 +6,7 @@ import People.Person;
     //Keyroom is in array Room;
 
 public class KeyRoom extends Room {
-    String in = "[ ]";
+    String Keys = "[ ]";
     boolean gotKey = false;
     //Calls constructor in parent class Room
 
@@ -18,20 +18,23 @@ public class KeyRoom extends Room {
     // If person enters room, their position is initialized and their position is shown in array as [x]
     // Prints out "You Found a Key"
     public void enterRoom(Person x) {
-        in = "[x]";
+        Keys = "[x]";
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);
-        System.out.println("You walked into a room and found a key!" + "Now, find the entrance!");
+        System.out.println("You walked into a room and found a key!" + " \uD83D\uDD11" + " Now, find the entrance!");
     }
     //If person leaves room, the room becomes apparent forever as [K]
     //GotKey is true
     public void leaveRoom(Person x) {
-        in = "[K]";
+        Keys = "[K]";
         gotKey = true;
+    }
+    public String getKey(){
+        return Keys;
     }
     //Returns array
     public String toString() {
-        return in;
+        return getKey();
     }
 }
