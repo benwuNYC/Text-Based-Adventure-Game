@@ -25,7 +25,7 @@ public class Runner {
         String playerName = name.nextLine();
         System.out.println(playerName +", find a key in one of the rooms to escape." + "\n" + "There is also a hidden torch, which if you find, will help you with your quest." + "\n" + "However, I must warn you not to stumble upon the monster." + "\n");
         // Board Size (array in room called building) creates a instance with dimensions 3 x 3
-        Room[][] building = new Room[3][3];
+        Room[][] building = new Room[4][4];
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -47,7 +47,7 @@ public class Runner {
         //Create KeyRoom
         int c = (int)(Math.random()*building.length);
         int d = (int)(Math.random()*building.length);
-        building[a][b] = new KeyRoom(c, d);
+        building[c][d] = new KeyRoom(c, d);
 
 
         //Setup player 1 and the input scanner

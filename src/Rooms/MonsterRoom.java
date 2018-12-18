@@ -48,6 +48,7 @@ public class MonsterRoom extends Room {
                         guess1 = guess.nextInt();
                     }
                     System.out.println("Nice! You guess the number in " + numGuess + " tries");
+                    System.out.println("You slashed the monster's face." + "\n" + "You cut its arms off." + "\n" + "You pierce its face.");
                 }
             }
             System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");

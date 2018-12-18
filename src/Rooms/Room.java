@@ -6,6 +6,7 @@ public class Room {
     Person occupant;
     int x,y;
     Room[][] items;
+    boolean gotKey = false;
 //Initializes Items and x+y
     public Room(int x, int y)
     {

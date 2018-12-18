@@ -7,7 +7,6 @@ import People.Person;
 
 public class KeyRoom extends Room {
     String Keys = "[ ]";
-    boolean gotKey = false;
     //Calls constructor in parent class Room
 
     public KeyRoom(int x, int y) {
@@ -22,7 +21,9 @@ public class KeyRoom extends Room {
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);
-        System.out.println("You walked into a room and found a key!" + " \uD83D\uDD11" + " Now, find the entrance!");
+        System.out.println("\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11");
+        System.out.println("\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+" You walked into a room and found a key!" + " Now, find the entrance!"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11");
+        System.out.println("\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11"+"\uD83D\uDD11");
     }
     //If person leaves room, the room becomes apparent forever as [K]
     //GotKey is true
