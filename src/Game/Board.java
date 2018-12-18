@@ -8,8 +8,8 @@ public class Board {
     private Room[][] map;
 
 //Initializes fields
-    public Board(int length, int width, Room[][] map) {
-        this.map = new Room[length][width];
+    public Board( Room[][] map) {
+        this.map=map;
     }
 //Prints out Board
     public void print() {

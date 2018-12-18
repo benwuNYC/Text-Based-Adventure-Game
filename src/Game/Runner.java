@@ -12,11 +12,10 @@ import Rooms.Outside;
 import java.util.Scanner;
 
 public class Runner {
-
-//Game is "on"
+    //Game is "on"
     private static boolean gameOn = true;
 
-//Welcomes player into house
+    //Welcomes player into house
     public static void main(String[] args)
     {  Scanner in = new Scanner(System.in);
 
@@ -25,7 +24,7 @@ public class Runner {
         //Ask for player's name; refers to it throughout
         String playerName = name.nextLine();
         System.out.println(playerName +", find a key in one of the rooms to escape." + "\n" + "There is also a hidden torch, which if you find, will help you with your quest." + "\n" + "However, I must warn you not to stumble upon the monster." + "\n");
-    // Board Size (array in room called building) creates a instance with dimensions 3 x 3
+        // Board Size (array in room called building) creates a instance with dimensions 3 x 3
         Room[][] building = new Room[3][3];
 
         //Fill the building with normal rooms
@@ -45,7 +44,7 @@ public class Runner {
         int a = (int)(Math.random()*building.length);
         int b = (int)(Math.random()*building.length);
         building[a][b] = new Outside(a, b);
-       //Create KeyRoom
+        //Create KeyRoom
         int c = (int)(Math.random()*building.length);
         int d = (int)(Math.random()*building.length);
         building[a][b] = new KeyRoom(c, d);
@@ -53,12 +52,10 @@ public class Runner {
 
         //Setup player 1 and the input scanner
         // Sets where player spawns
-        Person player1 = new Person("name", 0, 0);
-        int i = 0;
-        int j = 0;
-        building[i][j].enterRoom(player1);
-        building[0][0].enterRoom(player1);
-        Board map = new Board(3,3,building);
+        Person player1 = new Person("name", 2, 2);
+        building[1][2].enterRoom(player1);
+    //Creates Board and prints it
+        Board map = new Board(building);
         map.print();
 
         //If player's move is checked by method "ValidMove", then it prints out coordinates and map
