@@ -24,15 +24,15 @@ public class MonsterRoom extends Room {
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);
-        System.out.println("BOO! A monster jumps out at you! Do you fight it or grab a knife nearby?");
+        System.out.println("BOO! You walk into a room and a monster jumps out at you!" + "\n" + "Do you fight it or grab a knife nearby?");
         Scanner wep = new Scanner(System.in);
         String weapon = wep.nextLine();
         while (!weapon.equals("fight") || !weapon.equals("knife")) {
             System.out.println("Grab a weapon, you don't have much time!");
             weapon = wep.nextLine();
+        }
             if (weapon.equals("fight")) {
                 System.out.println("You falcon punched the monster!" + "\n" + "You uppercut him!" + "\n" + "You stomp on his face!");
-                break;
             } else {
                 if (weapon.equals("knife")) {
                     System.out.println("Oh no! The knife is locked in the dishwasher! Guess the combination from 1-5 to get it!");
@@ -49,7 +49,6 @@ public class MonsterRoom extends Room {
             }
             System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");
         }
-    }
     // When person leavesRoom, the Room is shown as [M] to show "Monster Room"
     public void leaveRoom(Person x) {
         in = "[M]";

@@ -15,6 +15,7 @@ public class Runner {
 
 //Game is "on"
     private static boolean gameOn = true;
+
 //Welcomes player into house
     public static void main(String[] args)
     {  Scanner in = new Scanner(System.in);
@@ -23,12 +24,9 @@ public class Runner {
         System.out.println("Welcome! You wandered into a haunted house." + "\n" + "Suddenly, the door slams shut from the inside." + "\n" + "What's your name, adventurer?");
         //Ask for player's name; refers to it throughout
         String playerName = name.nextLine();
-        System.out.println(playerName +", find a key in one of the rooms to escape." + "\n" + "There is also a hidden torch, which if you find, will help you with your quest." + "\n" + "However, I must warn you not to stumble upon the monster.");
+        System.out.println(playerName +", find a key in one of the rooms to escape." + "\n" + "There is also a hidden torch, which if you find, will help you with your quest." + "\n" + "However, I must warn you not to stumble upon the monster." + "\n");
     // Board Size (array in room called building) creates a instance with dimensions 3 x 3
         Room[][] building = new Room[3][3];
-        //Creates new Board named map with length, width, and adds building?
-        //Map is the Array
-        Game.Board map= new Game.Board(3,3, building);
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -59,6 +57,9 @@ public class Runner {
         int i = 0;
         int j = 0;
         building[i][j].enterRoom(player1);
+        building[0][0].enterRoom(player1);
+        Board map = new Board(3,3,building);
+        map.print();
 
         //If player's move is checked by method "ValidMove", then it prints out coordinates and map
         //Else; Try again
@@ -74,7 +75,7 @@ public class Runner {
 
             }
             else {
-                System.out.println("You bumped into the wall! Try moving somewhere else!");
+                System.out.println("You got lost in the darkness! Keep moving!");
             }
         }
         in.close();
@@ -146,6 +147,7 @@ public class Runner {
         }
         return true;
     }
+
     //Method that closes game
 
     public static void gameOff()

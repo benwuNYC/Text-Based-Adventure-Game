@@ -6,13 +6,9 @@ import Rooms.Room;
 //length and width
 public class Board {
     private Room[][] map;
-    private int length;
-    private int width;
 
 //Initializes fields
     public Board(int length, int width, Room[][] map) {
-        this.length = length;
-        this.width = width;
         this.map = new Room[length][width];
     }
 //Prints out Board
@@ -20,7 +16,7 @@ public class Board {
         String row = "";
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
-                row += map[i][j].toString();
+                row+= map[i][j].toString();
             }
             System.out.println(row);
             row = "";

@@ -22,7 +22,7 @@ public class KeyRoom extends Room {
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);
-        System.out.println("You found a key!");
+        System.out.println("You walked into a room and found a key!" + "Now, find the entrance!");
     }
     //If person leaves room, the room becomes apparent forever as [K]
     //GotKey is true
