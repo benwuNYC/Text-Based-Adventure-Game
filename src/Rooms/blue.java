@@ -20,12 +20,12 @@ public class blue extends Room {
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);
-        System.out.println("You stumble upon a potion. Do you chug the mysterious bottle?");
+        System.out.println(bluePotion.getName() + "Do you chug the mysterious bottle? " + bluePotion.describe());
         Scanner potionDrink = new Scanner(System.in);
         String response = potionDrink.nextLine();
         if (response.equals("yes")) {
             x.gainHP(50);
-            System.out.println("Now your hp is " + x.checkHP());
+            System.out.println("Lucky you! Now your hp is " + x.checkHP());
         } else {
             System.out.println("I'll ask you again: do you want to drink the potion? You only have " + x.checkHP() + " health");
             response = potionDrink.nextLine();

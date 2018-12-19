@@ -6,7 +6,7 @@ public class bluePotion implements Potions {
         x.gainHP(50);
     }
     public String getName(){
-        return "blue potion";
+        return "You stumbled upon a blue potion. ";
     }
 
     public String describe() {

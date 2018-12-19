@@ -30,17 +30,13 @@ public class WolfRoom extends Room {
             int dmgTake = (int) (((Math.random() * 95 + 5)));
             x.loseHP(dmgTake);
         } else {
-            System.out.println("The monster stabs you." + "\n" + "The monster kicks you. "+ "\n" + "The monster punches you you. ");
+            System.out.println("The monster stabs you." + "\n" + "The monster kicks you. " + "\n" + "The monster punches you you. ");
             int dmgTake2 = (int) (((Math.random() * 100) + 50));
             x.loseHP(dmgTake2);
             System.out.println("Luckily, your silence scares him away");
         }
         System.out.println("You've killed the monster, but you've taken some damage");
         System.out.println("Health:" + x.checkHP());
-        if(x.checkHP()<0){
-            System.out.println("Rest in piece, you've died, adventurer");
-            Helper.gameOff();
-        }
     }
 
     // When person leavesRoom, the Room is shown as [M] to show "Monster Room"

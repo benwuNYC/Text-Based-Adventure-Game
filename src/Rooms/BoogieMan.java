@@ -36,11 +36,7 @@ public class BoogieMan extends Room {
         }
         System.out.println("You've killed the monster, but you've taken some damage");
         System.out.println("Health:" + x.checkHP());
-        if(x.checkHP()<0){
-            System.out.println("Rest in piece, you've died, adventurer");
-            Helper.gameOff();
         }
-    }
 
     // When person leavesRoom, the Room is shown as [M] to show "Monster Room"
     public void leaveRoom(Person x) {

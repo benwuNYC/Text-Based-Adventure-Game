@@ -1,5 +1,7 @@
 package People;
 
+import Game.Helper;
+
 /**
  * Person represents the player as they move through the game.
  */
@@ -33,8 +35,12 @@ public class Person {
         this.hp = hp;
     }
 
-    public int checkHP(){
-        return hp;
+    public int checkHP() {
+        if (hp < 0) {
+            System.out.println("Rest in piece, you've died, adventurer");
+            Helper.gameOff();
+        }
+            return hp;
     }
 
     public void loseHP(int lose) {

@@ -6,7 +6,7 @@ public class redPotion implements Potions {
         x.loseHP(20);
     }
     public String getName(){
-        return "red potion";
+        return "You stumbled upon a red potion. ";
     }
 
     public String describe() {
