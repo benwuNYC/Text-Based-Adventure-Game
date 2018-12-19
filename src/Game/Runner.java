@@ -3,7 +3,12 @@ package Game;
 // Author: Benjamin Wu
 
 import People.Person;
-import Rooms.*;
+import Rooms.Room;
+import Rooms.BoogieMan;
+import Rooms.WolfRoom;
+import Rooms.blue;
+import Rooms.red;
+import Rooms.Outside;
 
 
 import java.util.Scanner;
