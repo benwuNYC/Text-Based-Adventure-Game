@@ -3,7 +3,6 @@ package Rooms;
 import java.util.Scanner;
 
 import People.Person;
-import Game.Runner;
 import Game.Helper;
 
 //Room shown as [ ]
@@ -19,7 +18,6 @@ public class BoogieMan extends Room {
     // If person enters room, their position is initialized and shown as [x]
     public void enterRoom(Person x) {
         in = "[x]";
-        int numGuess = 0;
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);

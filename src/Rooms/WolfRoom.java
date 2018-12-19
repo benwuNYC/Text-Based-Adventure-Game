@@ -17,13 +17,8 @@ public class WolfRoom extends Room {
     }
 
     // If person enters room, their position is initialized and shown as [x]
-    //Number of Guesses to open dish washer begins at 0
-    //Monster jumps out; Asks if you want to fight
-    //If fight= Displays some action
-    //IF KNIFE = Guess a number to unlock dishwasher and prints out numGuess taken
     public void enterRoom(Person x) {
         in = "[x]";
-        int numGuess = 0;
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);
