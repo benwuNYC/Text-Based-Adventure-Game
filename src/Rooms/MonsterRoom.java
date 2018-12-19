@@ -1,7 +1,6 @@
 package Rooms;
 import java.util.Scanner;
 
-import Game.Runner;
 import People.Person;
 import Items.Knife;
 //Room shown as [ ]
@@ -27,14 +26,11 @@ public class MonsterRoom extends Room {
         System.out.println("BOO! You walk into a room and a monster jumps out at you!" + "\n" + "Do you fight it or grab a knife nearby?");
         Scanner wep = new Scanner(System.in);
         String weapon = wep.nextLine();
-        while (!weapon.equals("fight") || !weapon.equals("knife")) {
+        while (!weapon.equals("fight") && !weapon.equals("knife")) {
             System.out.println("Knife or fight? You don't have much time!");
             weapon = wep.nextLine();
-            if(weapon.equals("fight") || weapon.equals("knife")){
-                break;
-            }
         }
-            if (weapon.equals("fight")) {
+        if (weapon.equals("fight")) {
                 System.out.println("You falcon punched the monster!" + "\n" + "You uppercut him!" + "\n" + "You stomp on his face!");
             } else {
                 if (weapon.equals("knife")) {
@@ -47,8 +43,7 @@ public class MonsterRoom extends Room {
                         numGuess++;
                         guess1 = guess.nextInt();
                     }
-                    System.out.println("Nice! You guess the number in " + numGuess + " tries");
-                    System.out.println("You slashed the monster's face." + "\n" + "You cut its arms off." + "\n" + "You pierce its face.");
+                    System.out.println("Nice! You guess the knife in " + numGuess + " tries");
                 }
             }
             System.out.println("Great job! You've defeated the monster. Now, hurry and get out the house before it haunts you!");

@@ -6,14 +6,12 @@ public class Room {
     Person occupant;
     int x,y;
     Room[][] items;
-    boolean gotKey;
 //Initializes Items and x+y
     public Room(int x, int y)
     {
         this.x = x;
         this.y = y;
         this.items = items;
-        this.gotKey = false;
     }
 
     /**

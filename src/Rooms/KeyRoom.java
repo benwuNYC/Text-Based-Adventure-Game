@@ -29,7 +29,6 @@ public class KeyRoom extends Room {
     //GotKey is true
     public void leaveRoom(Person x) {
         Keys = "[K]";
-        gotKey = true;
     }
     public String getKey(){
         return Keys;

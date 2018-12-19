@@ -7,6 +7,7 @@ import Rooms.KeyRoom;
 import Rooms.MonsterRoom;
 import Rooms.Room;
 import Rooms.Outside;
+import Items.Key;
 
 
 import java.util.Scanner;
@@ -14,6 +15,7 @@ import java.util.Scanner;
 public class Runner {
     //Game is "on"
     private static boolean gameOn = true;
+    boolean hasKey = false;
 
     //Welcomes player into house
     public static void main(String[] args)
@@ -65,11 +67,12 @@ public class Runner {
         //In.Close closes Scanner
         while(gameOn)
         {
+            Person.getHp();
             System.out.println("Where would you like to move? (Choose N, S, E, W)");
             String move = in.nextLine();
             if(validMove(move, player1, building))
             {
-                System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+                System.out.println("You walked into Aisle  " + player1.getxLoc() + ", Section " + player1.getyLoc());
                 map.print();
 
             }
@@ -147,6 +150,10 @@ public class Runner {
         return true;
     }
 
+    /**
+     * Creates the actual board.
+     * @return a Floor[] that is the board.
+     */
     //Method that closes game
 
     public static void gameOff()

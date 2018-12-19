@@ -3,6 +3,7 @@ package Items;
 import People.Person;
 
 public interface Consumables {
-    void use(Person p);
+    void use(Person x);
     String getName();
+    String describe();
 }
