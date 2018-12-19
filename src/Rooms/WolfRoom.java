@@ -33,7 +33,7 @@ public class WolfRoom extends Room {
             System.out.println("The monster stabs you." + "\n" + "The monster kicks you. " + "\n" + "The monster punches you you. ");
             int dmgTake2 = (int) (((Math.random() * 100) + 50));
             x.loseHP(dmgTake2);
-            System.out.println("Luckily, your silence scares him away");
+            System.out.println("Luckily, you scare him away");
         }
         System.out.println("You've killed the monster, but you've taken some damage");
         System.out.println("Health:" + x.checkHP());

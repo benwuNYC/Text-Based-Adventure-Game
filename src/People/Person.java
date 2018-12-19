@@ -51,7 +51,4 @@ public class Person {
         this.hp = hp + gain;
     }
 
-    public void gameOff(){
-        System.exit(0);
-    }
 }
