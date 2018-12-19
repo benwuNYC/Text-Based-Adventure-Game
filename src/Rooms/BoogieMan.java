@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import People.Person;
 import Game.Runner;
+import Game.Helper;
 
 //Room shown as [ ]
 public class BoogieMan extends Room {
@@ -16,10 +17,6 @@ public class BoogieMan extends Room {
     }
 
     // If person enters room, their position is initialized and shown as [x]
-    //Number of Guesses to open dish washer begins at 0
-    //Monster jumps out; Asks if you want to fight
-    //If fight= Displays some action
-    //IF KNIFE = Guess a number to unlock dishwasher and prints out numGuess taken
     public void enterRoom(Person x) {
         in = "[x]";
         int numGuess = 0;
@@ -43,7 +40,7 @@ public class BoogieMan extends Room {
         System.out.println("Health:" + x.checkHP());
         if(x.checkHP()<0){
             System.out.println("Rest in piece, you've died, adventurer");
-            x.gameOff();
+            Helper.gameOff();
         }
     }
 

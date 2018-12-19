@@ -1,7 +1,7 @@
 package Rooms;
 
 import Items.Potions;
-import Items. redPotion;
+import Items.bluePotion;
 import People.Person;
 
 import java.util.Scanner;
@@ -12,7 +12,7 @@ public class red extends Room {
 
     public red(int x, int y) {
         super(x, y);
-        this.redPotion = new redPotion();
+        this.redPotion = new bluePotion();
     }
 
     public void enterRoom(Person x) {

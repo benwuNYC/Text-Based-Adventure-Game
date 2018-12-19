@@ -1,7 +1,9 @@
 package Rooms;
 
+import Game.Helper;
 import Game.Runner;
 import People.Person;
+import Game.Helper;
 public class Outside extends Room
 {
     String in = "[ ]";
@@ -18,7 +20,6 @@ public class Outside extends Room
     public void enterRoom(Person x) {
         in = "[W]";
         System.out.println("Congratulations! You found your way out and made it out alive!");
-        x.gameOff();
     }
 //Returns flag
 

@@ -4,6 +4,7 @@ import People.Person;
 
 import java.util.Scanner;
 import Game.Runner;
+import Game.Helper;
 
 //Room shown as [ ]
 public class WolfRoom extends Room {
@@ -43,7 +44,7 @@ public class WolfRoom extends Room {
         System.out.println("Health:" + x.checkHP());
         if(x.checkHP()<0){
             System.out.println("Rest in piece, you've died, adventurer");
-            x.gameOff();
+            Helper.gameOff();
         }
     }
 
