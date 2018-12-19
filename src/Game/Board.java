@@ -3,7 +3,6 @@ package Game;
 import Rooms.Room;
 
 //Creates board with array of room called map
-//length and width
 public class Board {
     private Room[][] map;
 

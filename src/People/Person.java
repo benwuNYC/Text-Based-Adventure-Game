@@ -1,15 +1,12 @@
 package People;
-import Items.Consumables;
-import People.Person;
+
 /**
  * Person represents the player as they move through the game.
  */
 public class Person {
-    String name;
-    int xLoc, yLoc;
-    private static int hp;
-    private static Consumables[] inventory = new Consumables[3];
-
+    private String name;
+    private int xLoc, yLoc;
+    private int hp;
 
 
     public int getxLoc() {
@@ -28,39 +25,27 @@ public class Person {
         this.yLoc = yLoc;
     }
 
-    //Spawn HP
-    public static void setHp(){
-        hp= 100;
-    }
-    public static int getHp() {
-        return hp;
-    }
-
-    public Person(String name, int xLoc, int yLoc) {
+    public Person(String name, int xLoc, int yLoc, int hp)
+    {
         this.name = name;
         this.xLoc = xLoc;
         this.yLoc = yLoc;
-    }
-    public String invPrint()
-    {
-        String output = "";
-        for (int i = 0; i < inventory.length; i++)
-        {
-            if (inventory[i] != null)
-            {
-                output = output + i + ":" + "[" +inventory[i].getName() +"]";
-            }
-            else
-            {
-                output = output + i + ":" + "[" +" " +"]";
-            }
-
-        }
-        return output;
+        this.hp = hp;
     }
 
-    public Consumables getItem (int index)
-    {
-        return inventory[index];
+    public int checkHP(){
+        return hp;
+    }
+
+    public void loseHP(int lose) {
+        this.hp = hp - lose;
+    }
+
+    public void gainHP(int gain) {
+        this.hp = hp + gain;
+    }
+
+    public void gameOff(){
+        System.exit(0);
     }
 }

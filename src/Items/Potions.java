@@ -2,7 +2,7 @@ package Items;
 
 import People.Person;
 
-public interface Consumables {
+public interface Potions {
     void use(Person x);
     String getName();
     String describe();

@@ -5,13 +5,11 @@ import People.Person;
 public class Room {
     Person occupant;
     int x,y;
-    Room[][] items;
 //Initializes Items and x+y
     public Room(int x, int y)
     {
         this.x = x;
         this.y = y;
-        this.items = items;
     }
 
     /**
@@ -22,7 +20,7 @@ public class Room {
     // Prints out player's location
     public void enterRoom(Person x)
     {
-        System.out.println("You walk into a pitch black room. If only you had a torch!");
+        System.out.println("You walk into a pitch black room.");
         occupant = x;
         x.setxLoc(this.x);
         x.setyLoc(this.y);

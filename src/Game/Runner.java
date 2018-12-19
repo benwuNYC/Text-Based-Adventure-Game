@@ -3,11 +3,7 @@ package Game;
 // Author: Benjamin Wu
 
 import People.Person;
-import Rooms.KeyRoom;
-import Rooms.MonsterRoom;
-import Rooms.Room;
-import Rooms.Outside;
-import Items.Key;
+import Rooms.*;
 
 
 import java.util.Scanner;
@@ -15,19 +11,20 @@ import java.util.Scanner;
 public class Runner {
     //Game is "on"
     private static boolean gameOn = true;
-    boolean hasKey = false;
+
 
     //Welcomes player into house
     public static void main(String[] args)
     {  Scanner in = new Scanner(System.in);
+    boolean hasKey = false;
 
         Scanner name = new Scanner(System.in);
         System.out.println("Welcome! You wandered into a haunted house." + "\n" + "Suddenly, the door slams shut from the inside." + "\n" + "What's your name, adventurer?");
         //Ask for player's name; refers to it throughout
         String playerName = name.nextLine();
-        System.out.println(playerName +", find a key in one of the rooms to escape." + "\n" + "There is also a hidden torch, which if you find, will help you with your quest." + "\n" + "However, I must warn you not to stumble upon the monster." + "\n");
+        System.out.print(playerName + ", find your way out before the monster gets you." + "\n");
         // Board Size (array in room called building) creates a instance with dimensions 3 x 3
-        Room[][] building = new Room[4][4];
+        Room[][] building = new Room[3][3];
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -38,26 +35,39 @@ public class Runner {
             }
         }
 
-        //Create Monster Room
+        //Create Boogieman Room
         int x = (int)(Math.random()*building.length);
         int y = (int)(Math.random()*building.length);
-        building[x][y] = new MonsterRoom(x, y);
+        building[x][y] = new BoogieMan(x, y);
+        //Create Wolf Room
+        int r = (int)(Math.random()*building.length);
+        int s = (int)(Math.random()*building.length);
+        building[r][s] = new WolfRoom(r, s);
         // Create Outside Room
         int a = (int)(Math.random()*building.length);
         int b = (int)(Math.random()*building.length);
         building[a][b] = new Outside(a, b);
-        //Create KeyRoom
-        int c = (int)(Math.random()*building.length);
-        int d = (int)(Math.random()*building.length);
-        building[c][d] = new KeyRoom(c, d);
+
+        // Create red Room
+        int e = (int)(Math.random()*building.length);
+        int f = (int)(Math.random()*building.length);
+        building[e][f] = new red (e, f);
+
+        // Create blue Room
+        int g = (int)(Math.random()*building.length);
+        int h = (int)(Math.random()*building.length);
+        building[g][h] = new blue(g, h);
 
 
         //Setup player 1 and the input scanner
-        // Sets where player spawns
-        Person player1 = new Person("name", 2, 2);
+        // Sets where player spawns, and hp
+        Person player1 = new Person("Ben",1,2,100);
         int q = (int)(Math.random()*building.length);
         int w = (int)(Math.random()*building.length);
-        building[q][w].enterRoom(player1);
+        if(q !=a) {
+
+            building[q][w].enterRoom(player1);
+        }
     //Creates Board and prints it
         Board map = new Board(building);
         map.print();
@@ -67,7 +77,6 @@ public class Runner {
         //In.Close closes Scanner
         while(gameOn)
         {
-            Person.getHp();
             System.out.println("Where would you like to move? (Choose N, S, E, W)");
             String move = in.nextLine();
             if(validMove(move, player1, building))
