@@ -23,8 +23,27 @@ public class Runner {
         //Ask for player's name; refers to it throughout
         String playerName = name.nextLine();
         System.out.print(playerName + ", find your way out before the monster gets you." + "\n");
-        // Board Size (array in room called building) creates a instance with dimensions 3 x 3
-        Room[][] building = new Room[3][3];
+
+        String mode = "";
+        int size = 0;
+        while(!mode.equals("nyc") && !mode.equals("boston") && !mode.equals("newark")){
+            System.out.println("Do you want to explore on easy, medium, or hard?");
+            mode= mode.toLowerCase().trim();
+            mode = in.nextLine();
+            if(mode.equals("easy")){
+                size = 3;
+                break;
+            } else if(mode.equals("medium")){
+                size = 5;
+                break;
+            } else if(mode.equals("hard")){
+                size = 7;
+                break;
+            }
+        }
+
+        // Board Size (array in room called building) creates a instance with dimensions
+        Room[][] building = new Room[size][size];
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -34,6 +53,7 @@ public class Runner {
                 building[x][y] = new Room(x,y);
             }
         }
+
 
         //Create Boogieman Room
         int x = (int)(Math.random()*building.length);

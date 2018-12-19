@@ -35,7 +35,7 @@ public class BoogieMan extends Room {
             x.loseHP(dmgTake);
         } else {
             System.out.println("The monster stabs you." + "\n" + "The monster kicks you. "+ "\n" + "The monster punches you you. ");
-            int dmgTake2 = (int) (((Math.random() * 90) + 10));
+            int dmgTake2 = (int) (((Math.random() * 80) + 10));
             x.loseHP(dmgTake2);
             System.out.println("Luckily, your silence scares him away");
         }

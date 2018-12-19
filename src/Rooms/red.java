@@ -24,13 +24,13 @@ public class red extends Room {
         Scanner potionDrink = new Scanner(System.in);
         String response = potionDrink.nextLine();
         if (response.equals("yes")) {
-            x.gainHP(20);
+            x.loseHP(20);
             System.out.println("Now your hp is " + x.checkHP());
         } else {
             System.out.println("I'll ask you again: do you want to drink the potion? You only have " + x.checkHP() + " health");
             response = potionDrink.nextLine();
             if (response.equals("yes")) {
-                x.gainHP(50);
+                x.loseHP(50);
             } else {
             }
             System.out.println("Now your hp is " + x.checkHP());
